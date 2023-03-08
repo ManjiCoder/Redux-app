@@ -1,10 +1,10 @@
 // Reducers can be many
 
 const reducer = (state = 0, action) => {
-  if (action === "deposite") {
-    return state + payload;
-  } else if (action === "withdraw") {
-    return state - payload;
+  if (action.type === "deposite") {
+    return state + action.payload;
+  } else if (action.type === "withdraw") {
+    return state - action.payload;
   } else {
     return state;
   }
