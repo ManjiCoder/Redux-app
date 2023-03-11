@@ -10,5 +10,6 @@ const NoteSlice = createSlice({
   },
 });
 const { selectNote } = NoteSlice.actions;
+
 export default NoteSlice.reducer;
 export { selectNote };

@@ -15,27 +15,29 @@ function Shop() {
   //   actionCreators,
   //   dispatch
   // );
-  const handleChangeNote = (e) => {
-    dispatch(selectNote(Number.parseInt(e.target.value)));
-  };
+
+  // const handleChangeNote = (e) => {
+  //   dispatch(selectNote(Number.parseInt(e.target.value)));
+  // };
   return (
     <div>
       <h2 className="mb-3">Deposite/Withdraw Money</h2>
       <div className="container my-3" style={{ fontWeight: 500 }}>
         <span>{note === 0 ? "Select Note:" : `Selected Note: ${note}`} </span>
-        <select name="amount" id="" onChange={handleChangeNote}>
+        {/* <select name="amount" id="" onChange={handleChangeNote}>
           <option value={0}>--Select--</option>
           <option value={100}>100</option>
           <option value={200}>200</option>
           <option value={500}>500</option>
           <option value={2000}>2000</option>
-        </select>
-        {/* <div className="my-3">
+        </select> */}
+
+        <div className="my-3">
           <button
             className={`btn btn-${
               note === 100 ? "primary" : "outline-primary"
             }`}
-            onClick={() => dispatch(oneHundred(100))}
+            onClick={() => dispatch(selectNote(100))}
           >
             100
           </button>
@@ -43,7 +45,7 @@ function Shop() {
             className={`mx-2 btn btn-${
               note === 200 ? "primary" : "outline-primary"
             }`}
-            onClick={() => dispatch(twoHundred(200))}
+            onClick={() => dispatch(selectNote(200))}
           >
             200
           </button>
@@ -51,7 +53,7 @@ function Shop() {
             className={`btn btn-${
               note === 500 ? "primary" : "outline-primary"
             }`}
-            onClick={() => dispatch(fiveHundred(500))}
+            onClick={() => dispatch(selectNote(500))}
           >
             500
           </button>
@@ -59,11 +61,11 @@ function Shop() {
             className={`mx-2 btn btn-${
               note === 2000 ? "primary" : "outline-primary"
             }`}
-            onClick={() => dispatch(twoThousand(2000))}
+            onClick={() => dispatch(selectNote(2000))}
           >
             2000
           </button>
-        </div> */}
+        </div>
       </div>
 
       <button

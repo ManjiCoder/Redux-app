@@ -13,5 +13,6 @@ const MoneySlice = createSlice({
   },
 });
 const { depositNote, withdrawNote } = MoneySlice.actions;
+
 export default MoneySlice.reducer;
 export { depositNote, withdrawNote };
