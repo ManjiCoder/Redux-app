@@ -3,37 +3,34 @@ import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../state";
 import { depositNote, withdrawNote } from "../store/slices/MoneySlices";
-import {
-  oneHundred,
-  twoHundred,
-  fiveHundred,
-  twoThousand,
-} from "../store/slices/NoteSlice";
+import { selectNote } from "../store/slices/NoteSlice";
 
 function Shop() {
   const dispatch = useDispatch();
   const balance = useSelector((state) => state.money);
   const note = useSelector((state) => state.note);
-  console.log(note);
+
   // const balance = useSelector((state) => state.amount);
   // const { depositeMoney, withdrawMoney } = bindActionCreators(
   //   actionCreators,
   //   dispatch
   // );
-
+  const handleChangeNote = (e) => {
+    dispatch(selectNote(Number.parseInt(e.target.value)));
+  };
   return (
     <div>
       <h2 className="mb-3">Deposite/Withdraw Money</h2>
-      <div className="container" style={{ fontWeight: 500 }}>
+      <div className="container my-3" style={{ fontWeight: 500 }}>
         <span>{note === 0 ? "Select Note:" : `Selected Note: ${note}`} </span>
-        {/* <select name="amount" id="">
-          <option value="100">--Select--</option>
-          <option value="100">100</option>
-          <option value="100">200</option>
-          <option value="100">500</option>
-          <option value="100">2000</option>
-        </select> */}
-        <div className="my-3">
+        <select name="amount" id="" onChange={handleChangeNote}>
+          <option value={0}>--Select--</option>
+          <option value={100}>100</option>
+          <option value={200}>200</option>
+          <option value={500}>500</option>
+          <option value={2000}>2000</option>
+        </select>
+        {/* <div className="my-3">
           <button
             className={`btn btn-${
               note === 100 ? "primary" : "outline-primary"
@@ -66,7 +63,7 @@ function Shop() {
           >
             2000
           </button>
-        </div>
+        </div> */}
       </div>
 
       <button

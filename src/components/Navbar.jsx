@@ -34,7 +34,11 @@ function Navbar() {
             </li>
           </ul>
           <form className="d-flex" role="search">
-            <button disabled={true} className="btn btn-primary" type="submit">
+            <button
+              className="btn btn-primary"
+              style={{ pointerEvents: "none" }}
+              type="submit"
+            >
               Your Balance: {state}
             </button>
           </form>
